@@ -11,14 +11,14 @@ jobs:
     executor:
       name: windows/default
     steps:
-      - checkout
+      - checkout:
+          path: ~/InterestCalculatorBackend
       - run:
-          working_directory: ~/src
+          working_directory: ~/InterestCalculatorBackend/src
           name: "Install project dependencies"
           command: dotnet.exe restore
-      - checkout
       - run:
-          working_directory: ~/src
+          working_directory: ~/InterestCalculatorBackend/src
           name: "Run Application Tests"
           command: dotnet.exe test
   build:
