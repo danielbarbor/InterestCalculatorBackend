@@ -12,11 +12,11 @@ jobs:
       name: windows/default
     steps:
       - run:
-          working_directory: ~/InterestCalculatorBackend/src
+          working_directory: ~/src
           name: "Install project dependencies"
           command: dotnet.exe restore
       - run:
-          working_directory: ~/InterestCalculatorBackend/src
+          working_directory: ~/src
           name: "Run Application Tests"
           command: dotnet.exe test
   build:
