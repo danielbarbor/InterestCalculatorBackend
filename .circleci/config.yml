@@ -26,7 +26,10 @@ jobs:
     executor:
       name: windows/default
     steps:
+      - checkout:
+            path: ~/InterestCalculatorBackend
       - run:
+          working_directory: ~/InterestCalculatorBackend/src
           name: "Build Application"
           command: dotnet.exe build --configuration Release
           
