@@ -11,10 +11,12 @@ jobs:
     executor:
       name: windows/default
     steps:
+      - checkout
       - run:
           working_directory: ~/src
           name: "Install project dependencies"
           command: dotnet.exe restore
+      - checkout
       - run:
           working_directory: ~/src
           name: "Run Application Tests"
