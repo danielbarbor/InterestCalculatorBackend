@@ -1,0 +1,43 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+
+orbs:
+  windows: circleci/windows@2.2.0
+  
+jobs:
+  test:
+    description: Setup and run application tests
+    executor:
+      name: windows/default
+    steps:
+      - checkout:
+          path: ~/InterestCalculatorBackend
+      - run:
+          working_directory: ~/InterestCalculatorBackend/src
+          name: "Install project dependencies"
+          command: dotnet.exe restore
+      - run:
+          working_directory: ~/InterestCalculatorBackend/src
+          name: "Run Application Tests"
+          command: dotnet.exe test
+  build:
+    description: Build application with Release configuration
+    executor:
+      name: windows/default
+    steps:
+      - checkout:
+            path: ~/InterestCalculatorBackend
+      - run:
+          working_directory: ~/InterestCalculatorBackend/src
+          name: "Build Application"
+          command: dotnet.exe build --configuration Release
+          
+workflows:
+  test_and_build:
+    jobs:
+      - test
+      - build:
+          requires:
+            - test
+
