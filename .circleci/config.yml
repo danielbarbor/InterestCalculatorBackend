@@ -13,11 +13,11 @@ jobs:
     steps:
       - checkout
       - run:
-          working_directory: ~/src/
+          working_directory: ~../src/
           name: "Install project dependencies"
           command: dotnet.exe restore
       - run:
-          working_directory: ~/src/
+          working_directory: ~../src/
           name: "Run Application Tests"
           command: dotnet.exe test
   build:
