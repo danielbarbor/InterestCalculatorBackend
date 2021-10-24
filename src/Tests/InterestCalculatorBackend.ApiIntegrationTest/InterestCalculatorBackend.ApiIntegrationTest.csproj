@@ -22,6 +22,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\InterestCalculatorBackend.InterestRateAPI\InterestCalculatorBackend.InterestRateAPI.csproj" />
+      <ProjectReference Include="..\..\InterestCalculatorBackend.WebAPI\InterestCalculatorBackend.WebAPI.csproj" />
     </ItemGroup>
 
 </Project>
