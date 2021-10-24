@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="Class1.cs" />
+      <Compile Remove="Services\ShowSourceCodeService.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\InterestCalculatorBackend.Abstractions\InterestCalculatorBackend.Abstractions.csproj" />
+      <ProjectReference Include="..\InterestCalculatorBackend.Core\InterestCalculatorBackend.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Exceptions" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentValidation" Version="10.3.4" />
+    </ItemGroup>
+
+</Project>
