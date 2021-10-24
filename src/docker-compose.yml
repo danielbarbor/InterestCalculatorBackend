@@ -1,0 +1,18 @@
+version: '3.5'
+
+services: 
+  interestRateAPI:
+    image: interest_rate_api
+    build:
+      context: .
+      dockerfile: InterestCalculatorBackend.InterestRateAPI/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - 8080:80
+    networks:
+      - interest-calculator-network
+
+networks:
+  interest-calculator-network:
+    driver: bridge

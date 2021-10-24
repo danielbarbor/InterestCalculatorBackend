@@ -18,7 +18,7 @@ namespace InterestCalculatorBackend.ApiIntegrationTest.InterestRateAPI
         }
         
         [Fact]
-        public async Task GetInterestMustReturnSuccess()
+        public async Task GetInterestRateMustReturnSuccess()
         {
             var client = _factory.CreateClient();
             
