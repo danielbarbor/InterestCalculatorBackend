@@ -5,21 +5,31 @@ using InterestCalculatorBackend.Application.DTOs;
 using InterestCalculatorBackend.WebAPI;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
+using WireMock.Server;
+using WireMock.RequestBuilders;
+using WireMock.ResponseBuilders;
 
 namespace InterestCalculatorBackend.ApiIntegrationTest.WebAPI
 {
     public class InterestCalculatorController : IClassFixture<WebApplicationFactory<Startup>>
     {
         private readonly WebApplicationFactory<Startup> _factory;
+        
+        private readonly WireMockServer _server;
 
         public InterestCalculatorController()
         {
             _factory = new WebApplicationFactory<Startup>();
+            _server = WireMockServer.Start(8080);
         }
         
         [Fact]
         public async Task GetInterestCalculationMustReturnSuccess()
         {
+            // Settings for interest rate server mock
+            _server.Given(Request.Create().WithPath("/taxaJuros").UsingGet())
+                .RespondWith(Response.Create().WithStatusCode(200).WithBody("0.01"));
+
             var client = _factory.CreateClient();
             
             var response = await client.GetAsync("calculajuros?valorinicial=1000&meses=12");
@@ -38,11 +48,17 @@ namespace InterestCalculatorBackend.ApiIntegrationTest.WebAPI
             
             Assert.Equal("1126.82", outputValueDto.ResultRepresentation);
             
+            _server.Dispose();
+            
         }
         
         [Fact]
         public async Task GetInterestCalculationMustFailBecauseOfInvalidValue()
         {
+            // Settings for interest rate server mock
+            _server.Given(Request.Create().WithPath("/taxaJuros").UsingGet())
+                .RespondWith(Response.Create().WithStatusCode(200).WithBody("0.01"));
+            
             var client = _factory.CreateClient();
             
             var response = await client.GetAsync("calculajuros?valorinicial=0&meses=12");
@@ -52,12 +68,17 @@ namespace InterestCalculatorBackend.ApiIntegrationTest.WebAPI
             var result = await response.Content.ReadAsStringAsync();
             
             Assert.NotEmpty(result);
-
+            
+            _server.Dispose();
         }
         
         [Fact]
         public async Task GetInterestCalculationMustFailBecauseOfInvalidMonthsValue()
         {
+            // Settings for interest rate server mock
+            _server.Given(Request.Create().WithPath("/taxaJuros").UsingGet())
+                .RespondWith(Response.Create().WithStatusCode(200).WithBody("0.01"));
+            
             var client = _factory.CreateClient();
             
             var response = await client.GetAsync("calculajuros?valorinicial=1000&meses=0");
@@ -67,12 +88,18 @@ namespace InterestCalculatorBackend.ApiIntegrationTest.WebAPI
             var result = await response.Content.ReadAsStringAsync();
             
             Assert.NotEmpty(result);
+            
+            _server.Dispose();
 
         }
         
         [Fact]
         public async Task GetInterestCalculationMustFailBecauseOfBothInvalidValue()
         {
+            // Settings for interest rate server mock
+            _server.Given(Request.Create().WithPath("/taxaJuros").UsingGet())
+                .RespondWith(Response.Create().WithStatusCode(200).WithBody("0.01"));
+            
             var client = _factory.CreateClient();
             
             var response = await client.GetAsync("calculajuros?valorinicial=0&meses=0");
@@ -82,6 +109,8 @@ namespace InterestCalculatorBackend.ApiIntegrationTest.WebAPI
             var result = await response.Content.ReadAsStringAsync();
             
             Assert.NotEmpty(result);
+            
+            _server.Dispose();
 
         }
         

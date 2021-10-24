@@ -29,6 +29,8 @@ namespace InterestCalculatorBackend.InterestRateClient.Test.Client
             var response = await client.ConsultInterestRateAsync(_server.Urls[0]);
             
             Assert.Equal(0.01, response);
+            
+            _server.Dispose();
         }
     }
 }
