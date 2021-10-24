@@ -19,11 +19,11 @@ namespace InterestCalculatorBackend.Application.Test.Services
         [Fact]
         public async Task GetInterestRateTest()
         {
-            _rateClientMock.Setup(m => m.ConsultInterestRateAsync()).ReturnsAsync(() => 0.01);
+            _rateClientMock.Setup(m => m.ConsultInterestRateAsync(It.IsAny<string>())).ReturnsAsync((string host) => 0.01);
             
             IInterestRateService rateService = new InterestRateService(_rateClientMock.Object);
 
-            var rate = await rateService.GetInterestRateNowAsync();
+            var rate = await rateService.GetInterestRateNowAsync("http://localhost:8080");
             
             Assert.Equal(0.01, rate);
         }

@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterestCalculatorBackend.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterestCalculatorBackend.ApiIntegrationTest", "Tests\InterestCalculatorBackend.ApiIntegrationTest\InterestCalculatorBackend.ApiIntegrationTest.csproj", "{0A8E13AA-6856-438E-8F54-0EDB345C30F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterestCalculatorBackend.InterestRateClient", "InterestCalculatorBackend.InterestRateClient\InterestCalculatorBackend.InterestRateClient.csproj", "{E6B54627-626D-456D-9D5B-B9EAF6D06DA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterestCalculatorBackend.InterestRateClient.Test", "Tests\InterestCalculatorBackend.InterestRateClient.Test\InterestCalculatorBackend.InterestRateClient.Test.csproj", "{C2829859-7DD4-469F-A137-6EE0A0B79332}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,5 +58,13 @@ Global
 		{0A8E13AA-6856-438E-8F54-0EDB345C30F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A8E13AA-6856-438E-8F54-0EDB345C30F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A8E13AA-6856-438E-8F54-0EDB345C30F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6B54627-626D-456D-9D5B-B9EAF6D06DA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6B54627-626D-456D-9D5B-B9EAF6D06DA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6B54627-626D-456D-9D5B-B9EAF6D06DA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6B54627-626D-456D-9D5B-B9EAF6D06DA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2829859-7DD4-469F-A137-6EE0A0B79332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2829859-7DD4-469F-A137-6EE0A0B79332}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2829859-7DD4-469F-A137-6EE0A0B79332}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2829859-7DD4-469F-A137-6EE0A0B79332}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

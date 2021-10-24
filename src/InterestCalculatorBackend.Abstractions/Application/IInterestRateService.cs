@@ -4,6 +4,6 @@ namespace InterestCalculatorBackend.Abstractions.Application
 {
     public interface IInterestRateService
     {
-        public Task<double> GetInterestRateNowAsync();
+        Task<double> GetInterestRateNowAsync(string hostToConsult);
     }
 }

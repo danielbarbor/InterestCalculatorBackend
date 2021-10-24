@@ -13,9 +13,9 @@ namespace InterestCalculatorBackend.Application.Services
             _rateClient = rateClient;
         }
         
-        public async Task<double> GetInterestRateNowAsync()
+        public async Task<double> GetInterestRateNowAsync(string hostToConsult)
         {
-            var rate = await _rateClient.ConsultInterestRateAsync();
+            var rate = await _rateClient.ConsultInterestRateAsync(hostToConsult);
 
             return rate;
         }
