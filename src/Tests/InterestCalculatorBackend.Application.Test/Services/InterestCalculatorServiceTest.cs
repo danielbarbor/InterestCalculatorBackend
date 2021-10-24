@@ -19,14 +19,14 @@ namespace InterestCalculatorBackend.Application.Test.Services
         [Fact]
         public async Task CalculateCompoundInterestAsyncTest()
         {
-            _rateServiceMock.Setup(m => m.GetInterestRateNowAsync()).ReturnsAsync(() => 0.01);
+            _rateServiceMock.Setup(m => m.GetInterestRateNowAsync(It.IsAny<string>())).ReturnsAsync((string hostToConsult) => 0.01);
 
             IInterestCalculatorService<InputValueDto, OutputValueDto> calculatorService =
                 new InterestCalculatorService(_rateServiceMock.Object);
 
             var inputDto = new InputValueDto(1000, 12);
 
-            var outputDto = await calculatorService.CalculateCompoundInterestAsync(inputDto);
+            var outputDto = await calculatorService.CalculateCompoundInterestAsync("http://localhost:8080", inputDto);
             
             Assert.Equal(1126.82, outputDto.ResultValue);
             Assert.Equal("1126.82", outputDto.ResultRepresentation);

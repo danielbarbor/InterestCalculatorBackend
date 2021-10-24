@@ -14,9 +14,9 @@ namespace InterestCalculatorBackend.Application.Services
             _interestRateService = interestRateService;
         }
         
-        public async Task<OutputValueDto> CalculateCompoundInterestAsync(InputValueDto inputValue)
+        public async Task<OutputValueDto> CalculateCompoundInterestAsync(string hostToConsult, InputValueDto inputValue)
         {
-            var rate = await _interestRateService.GetInterestRateNowAsync();
+            var rate = await _interestRateService.GetInterestRateNowAsync(hostToConsult);
 
             var calculation = new CalculationEntity(inputValue.InitialValue, inputValue.Months);
 
