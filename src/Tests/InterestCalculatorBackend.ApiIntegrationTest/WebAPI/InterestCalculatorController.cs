@@ -1,28 +1,31 @@
+using System.Collections.Generic;
 using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
 using InterestCalculatorBackend.Application.DTOs;
 using InterestCalculatorBackend.WebAPI;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Extensions.Configuration;
 using Xunit;
 using WireMock.Server;
 using WireMock.RequestBuilders;
 using WireMock.ResponseBuilders;
+using WireMock.Settings;
 
 namespace InterestCalculatorBackend.ApiIntegrationTest.WebAPI
 {
-    public class InterestCalculatorController : IClassFixture<WebApplicationFactory<Startup>>
+    public class InterestCalculatorController : IClassFixture<WebApiApplicationFactory<Startup>>
     {
-        private readonly WebApplicationFactory<Startup> _factory;
+        private readonly WebApiApplicationFactory<Startup> _factory;
         
         private readonly WireMockServer _server;
 
         public InterestCalculatorController()
         {
-            _factory = new WebApplicationFactory<Startup>();
+            _factory = new WebApiApplicationFactory<Startup>();
             _server = WireMockServer.Start(8080);
         }
-        
+       
         [Fact]
         public async Task GetInterestCalculationMustReturnSuccess()
         {
