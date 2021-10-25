@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using InterestCalculatorBackend.Abstractions.Application;
@@ -25,6 +26,7 @@ namespace InterestCalculatorBackend.WebAPI
             Configuration = configuration;
         }
 
+        [ExcludeFromCodeCoverage]
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.

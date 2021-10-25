@@ -21,17 +21,10 @@ namespace InterestCalculatorBackend.WebAPI.Controllers
         [HttpGet("/showmethecode")]
         public ActionResult<SourceCodeInfoDto> GetSourceCodeInfo()
         {
-            try
-            {
-                var info = _sourceCodeService.ShowMeTheCode();
+            var info = _sourceCodeService.ShowMeTheCode();
 
-                return info;
-            }
-            catch (Exception e)
-            {
-                _logger.LogError($"A error has occured while attending the request, {e.Message}");
-                return StatusCode(500, e.Message);
-            }
+            return info;
+            
         }
     }
 }

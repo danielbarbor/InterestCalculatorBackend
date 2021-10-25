@@ -6,11 +6,6 @@ namespace InterestCalculatorBackend.Application.DTOs
         
         public int Months { get; set; }
 
-        public InputValueDto()
-        {
-            
-        }
-
         public InputValueDto(double initialValue, int months)
         {
             InitialValue = initialValue;

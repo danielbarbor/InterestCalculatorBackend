@@ -11,17 +11,6 @@ namespace InterestCalculatorBackend.Application.DTOs
         [JsonPropertyName("result_string_representation")]
         public string ResultRepresentation { get; set; }
 
-        public OutputValueDto()
-        {
-            
-        }
-
-        public OutputValueDto(double resultValue)
-        {
-            ResultValue = resultValue;
-            ResultRepresentation = resultValue.ToString(CultureInfo.InvariantCulture);
-        }
-
         public OutputValueDto(double resultValue, string resultRepresentation)
         {
             ResultValue = resultValue;

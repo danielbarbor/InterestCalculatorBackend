@@ -117,5 +117,18 @@ namespace InterestCalculatorBackend.ApiIntegrationTest.WebAPI
 
         }
         
+        [Fact]
+        public async Task GetInterestCalculationMustFailBecauseOfACommunicationException()
+        {
+            var client = _factory.CreateClient();
+            
+            var response = await client.GetAsync("calculajuros?valorinicial=1000&meses=12");
+            
+            Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
+
+            _server.Dispose();
+
+        }
+        
     }
 }
