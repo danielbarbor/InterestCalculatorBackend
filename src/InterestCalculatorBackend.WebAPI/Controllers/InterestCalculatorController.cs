@@ -44,7 +44,8 @@ namespace InterestCalculatorBackend.WebAPI.Controllers
                 
                 // Getting info about interest rate server from appsettings. The user could maybe define another host.
                 var interestRateHost = _configuration.GetSection("InterestRateApiHost").Value;
-
+                
+                _logger.LogInformation($"The interest rate host is defined as {interestRateHost}");
                 var result = await _calculatorService.CalculateCompoundInterestAsync(interestRateHost, inputDto);
 
                 return result;
