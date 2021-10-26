@@ -17,6 +17,9 @@ initial value * (1 + interest rate) ^ time
 
 The result is displayed through the endpoint "/calculajuros", having parameters in the url, for example: "/calculajuros?valorinicial=1000&meses=12".
 
+The number representation format follows the culture and standard currently used in Brazil.
+For example: 105,10
+
 Another function of the second API is to return the url where the source code is located. This function is available in the endpoint /showmethecode
 
 ## Architecture definition
