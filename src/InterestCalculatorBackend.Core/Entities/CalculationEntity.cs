@@ -15,6 +15,7 @@ namespace InterestCalculatorBackend.Core.Entities
         {
             InitialValue = initialValue;
             Months = months;
+            DomainCultureRules.SetDomainCultureRules();
         }
 
         public double Calculate(double interest)
@@ -30,7 +31,7 @@ namespace InterestCalculatorBackend.Core.Entities
 
         public override string ToString()
         {
-            return ResultValue.ToString("F", DomainCultureRules.GetDomainCultureRules());
+            return ResultValue.ToString("###########0.00");
         }
 
     }

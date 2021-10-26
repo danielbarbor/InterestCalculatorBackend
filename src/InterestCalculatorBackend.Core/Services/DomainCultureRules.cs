@@ -4,15 +4,17 @@ namespace InterestCalculatorBackend.Core
 {
     public class DomainCultureRules
     {
-        public static CultureInfo GetDomainCultureRules()
+        public static void SetDomainCultureRules()
         {
+        
             var culture = new CultureInfo("pt-BR");
             culture.NumberFormat.NumberDecimalSeparator = ",";
             culture.NumberFormat.NumberGroupSeparator = ".";
             culture.NumberFormat.CurrencyDecimalSeparator = ",";
             culture.NumberFormat.CurrencyGroupSeparator = ".";
 
-            return culture;
+            System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+            
         }
     }
 }
