@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace InterestCalculatorBackend.InterestRateAPI
+namespace InterestCalculatorBackend.WebAPI
 {
     [ExcludeFromCodeCoverage]
     public class Program
