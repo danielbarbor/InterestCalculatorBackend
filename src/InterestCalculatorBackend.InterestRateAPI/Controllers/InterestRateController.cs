@@ -15,6 +15,10 @@ namespace InterestCalculatorBackend.InterestRateAPI.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Informs the current interest rate in the system
+        /// </summary>
+        /// <returns>A double with the interest rate decimal value</returns>
         [HttpGet("/taxaJuros")]
         public ActionResult<double> GetInterestRateNow()
         {

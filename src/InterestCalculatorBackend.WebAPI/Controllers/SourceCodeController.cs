@@ -17,7 +17,11 @@ namespace InterestCalculatorBackend.WebAPI.Controllers
             _logger = logger;
             _sourceCodeService = sourceCodeService;
         }
-
+        
+        /// <summary>
+        /// Responsible for informing the url of where the remote source code repository is located
+        /// </summary>
+        /// <returns>A SourceCodeInfoDto with the url string</returns>
         [HttpGet("/showmethecode")]
         public ActionResult<SourceCodeInfoDto> GetSourceCodeInfo()
         {
