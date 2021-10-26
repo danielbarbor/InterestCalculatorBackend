@@ -55,9 +55,9 @@ When the infrastructure is assembled using docker-compose, in theory it works as
 
 To run the application, it is necessary to have the docker and docker-compose software installed on your machine, or infrastructure.
 
-[Download Docker]('https://www.docker.com/products/docker-desktop')
+[Download Docker](https://www.docker.com/products/docker-desktop)
 
-[Download Docker Compose]('https://docs.docker.com/compose/install/')
+[Download Docker Compose](https://docs.docker.com/compose/install/)
 
 Now, to build the application infrastructure, open a terminal inside the 'src' folder of this repository, and run the command below:
 ```
