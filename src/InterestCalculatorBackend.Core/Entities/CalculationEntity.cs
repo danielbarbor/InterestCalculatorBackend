@@ -30,7 +30,8 @@ namespace InterestCalculatorBackend.Core.Entities
 
         public override string ToString()
         {
-            return ResultValue.ToString(CultureInfo.InvariantCulture);
+            return ResultValue.ToString("F", DomainCultureRules.GetDomainCultureRules());
         }
+
     }
 }

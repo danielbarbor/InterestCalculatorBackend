@@ -24,12 +24,12 @@ namespace InterestCalculatorBackend.Application.Test.Services
             IInterestCalculatorService<InputValueDto, OutputValueDto> calculatorService =
                 new InterestCalculatorService(_rateServiceMock.Object);
 
-            var inputDto = new InputValueDto(1000, 12);
+            var inputDto = new InputValueDto(100, 5);
 
             var outputDto = await calculatorService.CalculateCompoundInterestAsync("http://localhost:8080", inputDto);
             
-            Assert.Equal(1126.82, outputDto.ResultValue);
-            Assert.Equal("1126.82", outputDto.ResultRepresentation);
+            Assert.Equal(105.10, outputDto.ResultValue);
+            Assert.Equal("105,10", outputDto.ResultRepresentation);
         }
     }
 }

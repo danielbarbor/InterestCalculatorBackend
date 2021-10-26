@@ -8,13 +8,11 @@ namespace InterestCalculatorBackend.Application.DTOs
         /// <summary>
         /// The calculation result value as a double
         /// </summary>
-        [JsonPropertyName("result")]
         public double ResultValue { get; set; }
         
         /// <summary>
         /// The calculation result value as a string 
         /// </summary>
-        [JsonPropertyName("result_string_representation")]
         public string ResultRepresentation { get; set; }
 
         public OutputValueDto(double resultValue, string resultRepresentation)

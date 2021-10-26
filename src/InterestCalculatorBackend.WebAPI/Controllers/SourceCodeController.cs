@@ -21,13 +21,13 @@ namespace InterestCalculatorBackend.WebAPI.Controllers
         /// <summary>
         /// Responsible for informing the url of where the remote source code repository is located
         /// </summary>
-        /// <returns>A SourceCodeInfoDto with the url string</returns>
+        /// <returns>A url string</returns>
         [HttpGet("/showmethecode")]
-        public ActionResult<SourceCodeInfoDto> GetSourceCodeInfo()
+        public ActionResult<string> GetSourceCodeInfo()
         {
             var info = _sourceCodeService.ShowMeTheCode();
 
-            return info;
+            return info.SourceCodeUrl;
             
         }
     }

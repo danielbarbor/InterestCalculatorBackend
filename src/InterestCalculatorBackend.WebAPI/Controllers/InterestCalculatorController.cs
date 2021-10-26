@@ -29,13 +29,13 @@ namespace InterestCalculatorBackend.WebAPI.Controllers
         }
         
         /// <summary>
-        /// 
+        /// Performs compound interest calculation
         /// </summary>
         /// <param name="valorinicial">A double value that comes as a url param. Informs the value number</param>
         /// <param name="meses">A int value that comes as a url param. Informs the months number</param>
-        /// <returns>A ActionResult with OutputValueDto, containing the calculation result</returns>
+        /// <returns>A string containing the calculation result</returns>
         [HttpGet("/calculajuros")]
-        public async Task<ActionResult<OutputValueDto>> GetInterestCalculation(double valorinicial, int meses)
+        public async Task<ActionResult<string>> GetInterestCalculation(double valorinicial, int meses)
         {
             try
             {
@@ -53,8 +53,8 @@ namespace InterestCalculatorBackend.WebAPI.Controllers
                 
                 _logger.LogInformation($"The interest rate host is defined as {interestRateHost}");
                 var result = await _calculatorService.CalculateCompoundInterestAsync(interestRateHost, inputDto);
-
-                return result;
+                
+                return result.ResultRepresentation;
             }
             catch (Exception e)
             {

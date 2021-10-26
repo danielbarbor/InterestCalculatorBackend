@@ -11,13 +11,7 @@ namespace InterestCalculatorBackend.Application.DTOs
         /// <summary>
         /// The source code url as a string
         /// </summary>
-        [JsonPropertyName("source_code_url")]
         public string SourceCodeUrl { get; set; }
-
-        public SourceCodeInfoDto()
-        {
-                
-        }
 
         public SourceCodeInfoDto(string sourceCodeUrl)
         {

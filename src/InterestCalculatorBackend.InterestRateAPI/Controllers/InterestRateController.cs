@@ -1,3 +1,4 @@
+using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -20,11 +21,23 @@ namespace InterestCalculatorBackend.InterestRateAPI.Controllers
         /// </summary>
         /// <returns>A double with the interest rate decimal value</returns>
         [HttpGet("/taxaJuros")]
-        public ActionResult<double> GetInterestRateNow()
+        public ActionResult<string> GetInterestRateNow()
         {
             _logger.LogInformation("Request for rate received");
             _logger.LogInformation("Sending rate");
-            return Rate;
+            
+            return Rate.ToString(GetDomainCultureRules());
+        }
+
+        private CultureInfo GetDomainCultureRules()
+        {
+            var culture = new CultureInfo("pt-BR");
+            culture.NumberFormat.NumberDecimalSeparator = ",";
+            culture.NumberFormat.NumberGroupSeparator = ".";
+            culture.NumberFormat.CurrencyDecimalSeparator = ",";
+            culture.NumberFormat.CurrencyGroupSeparator = ".";
+
+            return culture;
         }
     }
 }
