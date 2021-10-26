@@ -15,7 +15,7 @@ namespace InterestCalculatorBackend.InterestRateClient.Test.Client
         
         public InterestRateClientTest()
         {
-            _server = WireMockServer.Start();
+            _server = WireMockServer.Start(3000);
         }
         
         [Fact]

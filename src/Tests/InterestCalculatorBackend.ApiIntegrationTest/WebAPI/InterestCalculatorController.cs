@@ -23,7 +23,7 @@ namespace InterestCalculatorBackend.ApiIntegrationTest.WebAPI
         public InterestCalculatorController()
         {
             _factory = new WebApiApplicationFactory<Startup>();
-            _server = WireMockServer.Start(8080);
+            _server = WireMockServer.Start(3000);
         }
        
         [Fact]
