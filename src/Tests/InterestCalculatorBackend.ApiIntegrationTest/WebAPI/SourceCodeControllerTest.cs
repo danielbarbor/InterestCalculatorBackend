@@ -29,11 +29,7 @@ namespace InterestCalculatorBackend.ApiIntegrationTest.WebAPI
             
             Assert.NotEmpty(result);
             
-            var sourceCodeDto = JsonSerializer.Deserialize<SourceCodeInfoDto>(result);
-            
-            Assert.NotNull(sourceCodeDto);
-            
-            Assert.Equal("https://github.com/danielbarbor/InterestCalculatorBackend", sourceCodeDto.SourceCodeUrl);
+            Assert.Equal("https://github.com/danielbarbor/InterestCalculatorBackend", result);
             
         }
     }

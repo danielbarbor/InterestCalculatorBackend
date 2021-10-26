@@ -1,6 +1,6 @@
 version: '3.5'
 
-services: 
+services:
   interestRateAPI:
     image: interest_rate_api
     build:

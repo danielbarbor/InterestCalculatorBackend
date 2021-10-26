@@ -31,7 +31,7 @@ namespace InterestCalculatorBackend.ApiIntegrationTest.WebAPI
         {
             // Settings for interest rate server mock
             _server.Given(Request.Create().WithPath("/taxaJuros").UsingGet())
-                .RespondWith(Response.Create().WithStatusCode(200).WithBody("0.01"));
+                .RespondWith(Response.Create().WithStatusCode(200).WithBody("0,01"));
 
             var client = _factory.CreateClient();
             
@@ -43,13 +43,7 @@ namespace InterestCalculatorBackend.ApiIntegrationTest.WebAPI
             
             Assert.NotEmpty(result);
             
-            var outputValueDto = JsonSerializer.Deserialize<OutputValueDto>(result);
-            
-            Assert.NotNull(outputValueDto);
-            
-            Assert.Equal(1126.82, outputValueDto.ResultValue);
-            
-            Assert.Equal("1126.82", outputValueDto.ResultRepresentation);
+            Assert.Equal("1126,82", result);
             
             _server.Dispose();
             
@@ -60,7 +54,7 @@ namespace InterestCalculatorBackend.ApiIntegrationTest.WebAPI
         {
             // Settings for interest rate server mock
             _server.Given(Request.Create().WithPath("/taxaJuros").UsingGet())
-                .RespondWith(Response.Create().WithStatusCode(200).WithBody("0.01"));
+                .RespondWith(Response.Create().WithStatusCode(200).WithBody("0,01"));
             
             var client = _factory.CreateClient();
             
@@ -80,7 +74,7 @@ namespace InterestCalculatorBackend.ApiIntegrationTest.WebAPI
         {
             // Settings for interest rate server mock
             _server.Given(Request.Create().WithPath("/taxaJuros").UsingGet())
-                .RespondWith(Response.Create().WithStatusCode(200).WithBody("0.01"));
+                .RespondWith(Response.Create().WithStatusCode(200).WithBody("0,01"));
             
             var client = _factory.CreateClient();
             
@@ -101,7 +95,7 @@ namespace InterestCalculatorBackend.ApiIntegrationTest.WebAPI
         {
             // Settings for interest rate server mock
             _server.Given(Request.Create().WithPath("/taxaJuros").UsingGet())
-                .RespondWith(Response.Create().WithStatusCode(200).WithBody("0.01"));
+                .RespondWith(Response.Create().WithStatusCode(200).WithBody("0,01"));
             
             var client = _factory.CreateClient();
             

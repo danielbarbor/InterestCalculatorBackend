@@ -30,12 +30,7 @@ namespace InterestCalculatorBackend.ApiIntegrationTest.InterestRateAPI
             
             Assert.NotEmpty(result);
             
-            NumberFormatInfo provider = new NumberFormatInfo();
-            provider.NumberDecimalSeparator = ".";
-            
-            var res = Double.Parse(result, provider);
-            
-            Assert.Equal(0.01, res);
+            Assert.Equal("0,01", result);
             
         }
     }

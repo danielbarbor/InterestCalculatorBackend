@@ -15,14 +15,14 @@ namespace InterestCalculatorBackend.InterestRateClient.Test.Client
         
         public InterestRateClientTest()
         {
-            _server = WireMockServer.Start(3000);
+            _server = WireMockServer.Start(3001);
         }
         
         [Fact]
         public async Task ConsultInterestRateAsyncTestMustReturnSuccess()
         {
             _server.Given(Request.Create().WithPath("/taxaJuros").UsingGet())
-                .RespondWith(Response.Create().WithStatusCode(200).WithBody("0.01"));
+                .RespondWith(Response.Create().WithStatusCode(200).WithBody("0,01"));
             
             IInterestRateClient client = new InterestRateClient.Client.InterestRateClient();
             

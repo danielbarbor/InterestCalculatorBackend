@@ -21,13 +21,24 @@ namespace InterestCalculatorBackend.Core.Test.Entities
         }
         
         [Fact]
+        public void CalculateOperationAndFormatTest()
+        {
+            var calculationFormatTest = new CalculationEntity(100, 5);
+            var result = calculationFormatTest.Calculate(0.01);
+            var resultString = calculationFormatTest.ToString();
+            
+            Assert.Equal(105.10, result);
+            Assert.Equal("105,10", resultString);
+        }
+        
+        [Fact]
         public void CalculateOperationToStringTest()
         {
             _calculation.Calculate(0.01);
 
             var resultString = _calculation.ToString();
             
-            Assert.Equal("1126.82", resultString);
+            Assert.Equal("1126,82", resultString);
         }
     }
 }

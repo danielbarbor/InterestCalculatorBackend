@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Threading.Tasks;
 using InterestCalculatorBackend.Abstractions.InterestRateClient;
 using InterestCalculatorBackend.InterestRateClient.CommunicationInterfaces;
@@ -17,8 +18,12 @@ namespace InterestCalculatorBackend.InterestRateClient.Client
             var client = RestService.For<IInterestRateCommunication>(host);
 
             var rate = await client.GetInterestRateAsync();
+            
+            NumberFormatInfo provider = new NumberFormatInfo();
+            provider.NumberDecimalSeparator = ",";
+            provider.NumberGroupSeparator = ".";
 
-            return rate;
+            return Convert.ToDouble(rate, provider);
         }
     }
 }

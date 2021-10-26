@@ -28,10 +28,5 @@ namespace InterestCalculatorBackend.Application.Test.Services
             Assert.Equal(0.01, rate);
         }
 
-        [Fact]
-        public async Task GetInterestRateMustThrowExceptionRateServerErrorTest()
-        {
-            
-        }
     }
 }
