@@ -28,6 +28,12 @@ namespace InterestCalculatorBackend.WebAPI.Controllers
 
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="valorinicial">A double value that comes as a url param. Informs the value number</param>
+        /// <param name="meses">A int value that comes as a url param. Informs the months number</param>
+        /// <returns>A ActionResult with OutputValueDto, containing the calculation result</returns>
         [HttpGet("/calculajuros")]
         public async Task<ActionResult<OutputValueDto>> GetInterestCalculation(double valorinicial, int meses)
         {

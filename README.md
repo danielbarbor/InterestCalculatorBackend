@@ -96,6 +96,7 @@ Or use an IDE of your own, such as Rider or Visual Studio.
 * SOLID
 * Dependency Injection
 * Restfull
+* Refit
 * FluentValidator
 * Docker
 * Docker Compose
